@@ -62,4 +62,293 @@
                                 <span>Team Alpha</span>
                                 <i class="fas fa-qr-code"></i>
                             </div>
-                            <div class="progress
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 60%"></div>
+                            </div>
+                            <div class="current-mission">
+                                <i class="fas fa-location-dot"></i>
+                                <span>Find QR Code #3</span>
+                            </div>
+                            <div class="scan-area">
+                                <div class="qr-scanner">
+                                    <div class="scan-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructions Section -->
+    <section id="instructions" class="instructions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Event Instructions</h2>
+                <p>Everything you need to know to participate in today's treasure hunt</p>
+            </div>
+            <div class="instructions-grid">
+                <div class="instruction-card">
+                    <div class="instruction-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Form Your Team</h3>
+                    <p>Teams of 3-5 people. You'll receive a unique team code from the organizers to start your hunt.</p>
+                </div>
+                <div class="instruction-card">
+                    <div class="instruction-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Access the App</h3>
+                    <p>Use any smartphone or tablet browser to access the treasure hunt app. No downloads required!</p>
+                </div>
+                <div class="instruction-card">
+                    <div class="instruction-icon">
+                        <i class="fas fa-qr-code"></i>
+                    </div>
+                    <h3>Scan QR Codes</h3>
+                    <p>Follow your assigned route and scan QR codes in the correct order. Each location has unique questions.</p>
+                </div>
+                <div class="instruction-card">
+                    <div class="instruction-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Take Team Photos</h3>
+                    <p>At each location, take a photo of your team with the QR code for verification by event organizers.</p>
+                </div>
+                <div class="instruction-card">
+                    <div class="instruction-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time Limit</h3>
+                    <p>Complete as many locations as possible within the event time. First team to finish all locations wins!</p>
+                </div>
+                <div class="instruction-card">
+                    <div class="instruction-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Win Prizes</h3>
+                    <p>Prizes for fastest completion, most creative photos, and best teamwork. Everyone gets participation rewards!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>How the Hunt Works</h2>
+                <p>See what participants and organizers will experience during the event</p>
+            </div>
+            <div class="demo-tabs">
+                <button class="tab-btn active" onclick="showDemo('player')">Participant View</button>
+                <button class="tab-btn" onclick="showDemo('admin')">Organizer View</button>
+            </div>
+            
+            <div id="player-demo" class="demo-content active">
+                <div class="demo-grid">
+                    <div class="demo-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Team Login</h4>
+                                <p>Enter your team code to access your personalized hunt route</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Follow Your Route</h4>
+                                <p>Each team gets a different sequence to avoid crowding</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Answer Questions</h4>
+                                <p>Different questions for each team at every location</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Submit Photos</h4>
+                                <p>Take team photos for organizer verification</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-visual">
+                        <div class="browser-mockup">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="browser-url">event.treasurehunt/play</div>
+                            </div>
+                            <div class="browser-content">
+                                <div class="login-screen">
+                                    <h3>Welcome to the Hunt!</h3>
+                                    <div class="input-group">
+                                        <input type="text" placeholder="Enter Team Code" value="TEAM001">
+                                        <button class="btn btn-primary">Start Hunt</button>
+                                    </div>
+                                    <p class="demo-note">Sample team codes: TEAM001, TEAM002, TEAM003</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="admin-demo" class="demo-content">
+                <div class="demo-grid">
+                    <div class="demo-visual">
+                        <div class="dashboard-mockup">
+                            <div class="dashboard-header">
+                                <h4>Event Organizer Dashboard</h4>
+                                <span class="status-indicator">● Event Live</span>
+                            </div>
+                            <div class="dashboard-content">
+                                <div class="stats-row">
+                                    <div class="stat-card">
+                                        <span class="stat-value">8</span>
+                                        <span class="stat-label">Teams Playing</span>
+                                    </div>
+                                    <div class="stat-card">
+                                        <span class="stat-value">5</span>
+                                        <span class="stat-label">Photos to Review</span>
+                                    </div>
+                                    <div class="stat-card">
+                                        <span class="stat-value">23</span>
+                                        <span class="stat-label">Locations Completed</span>
+                                    </div>
+                                </div>
+                                <div class="recent-submissions">
+                                    <h5>Recent Submissions</h5>
+                                    <div class="submission-item">
+                                        <span class="team">Team Alpha</span>
+                                        <span class="location">Library Entrance</span>
+                                        <span class="status pending">Pending</span>
+                                    </div>
+                                    <div class="submission-item">
+                                        <span class="team">Team Beta</span>
+                                        <span class="location">Cafeteria</span>
+                                        <span class="status approved">Approved</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-features">
+                        <h4>Organizer Tools</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Real-time team monitoring</li>
+                            <li><i class="fas fa-check"></i> Photo verification</li>
+                            <li><i class="fas fa-check"></i> Progress tracking</li>
+                            <li><i class="fas fa-check"></i> Live leaderboard</li>
+                            <li><i class="fas fa-check"></i> Team communication</li>
+                            <li><i class="fas fa-check"></i> Event statistics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details Section -->
+    <section class="event-details">
+        <div class="container">
+            <div class="section-header">
+                <h2>Event Information</h2>
+                <p>Important details for today's treasure hunt</p>
+            </div>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Event Duration</h3>
+                    <p>2 hours total - teams have plenty of time to explore all locations and complete the hunt at a comfortable pace.</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Event Locations</h3>
+                    <p>Hunt takes place across our campus/venue. All locations are accessible and clearly marked with QR codes.</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Technical Requirements</h3>
+                    <p>Any smartphone or tablet with camera and internet access. No app downloads required - everything works in your browser.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section id="admin" class="quick-start">
+        <div class="container">
+            <div class="quick-start-content">
+                <h2>Quick Start Guide</h2>
+                <p>Ready to begin the treasure hunt? Here's what you need to know</p>
+                <div class="start-options">
+                    <div class="start-option">
+                        <h4>For Participants</h4>
+                        <p>Get your team code from the organizers and access the hunt app</p>
+                        <button class="btn btn-primary" onclick="startHunt()">Access Hunt App</button>
+                    </div>
+                    <div class="start-option">
+                        <h4>For Organizers</h4>
+                        <p>Monitor teams, review photos, and manage the event in real-time</p>
+                        <button class="btn btn-secondary" onclick="openAdmin()">Open Admin Panel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Treasure Hunt Event</span>
+                    </div>
+                    <p>Have fun, work together, and enjoy the adventure!</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Event Support</h4>
+                    <ul>
+                        <li>Need help? Ask any organizer</li>
+                        <li>Technical issues? Check with IT support</li>
+                        <li>Lost your team code? Contact registration</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Remember</h4>
+                    <ul>
+                        <li>Stay with your team</li>
+                        <li>Be respectful of locations</li>
+                        <li>Have fun and be creative!</li>
+                        <li>Ask for help if needed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Internal Company Event. Good luck to all teams!</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
