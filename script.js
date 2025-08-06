@@ -2,10 +2,12 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+}
 
 // Demo Tabs
 function showDemo(type) {
@@ -40,15 +42,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// CTA Functions
-function openDemo() {
-    alert('Demo will open in a new window. In production, this would launch the actual app demo.');
-    // In production: window.open('https://demo.treasurehunt.app', '_blank');
+// Event Functions
+function startHunt() {
+    // In production, replace with your actual app URL
+    const appUrl = 'https://your-treasure-hunt-app.com';
+    
+    if (confirm('This will open the treasure hunt app. Make sure you have your team code ready!')) {
+        window.open(appUrl, '_blank');
+    }
 }
 
-function contactSales() {
-    alert('Contact form will open. In production, this would open a contact modal or redirect to contact page.');
-    // In production: window.location.href = 'mailto:contact@treasurehunt.com';
+function openAdmin() {
+    // In production, replace with your actual admin URL
+    const adminUrl = 'https://your-treasure-hunt-app.com/admin';
+    
+    if (confirm('This will open the admin dashboard. Admin access only.')) {
+        window.open(adminUrl, '_blank');
+    }
 }
 
 // Animate on Scroll
@@ -69,7 +79,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all cards and sections
-document.querySelectorAll('.feature-card, .use-case').forEach(el => {
+document.querySelectorAll('.instruction-card, .detail-card').forEach(el => {
     observer.observe(el);
 });
 
@@ -89,45 +99,22 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Dynamic stats counter
-function animateStats() {
-    const stats = document.querySelectorAll('.stat-number');
-    stats.forEach(stat => {
-        const target = parseInt(stat.textContent.replace(/\D/g, ''));
-        const duration = 2000; // 2 seconds
-        const start = 0;
-        const increment = target / (duration / 16);
-        let current = start;
+// Event countdown or timer (optional)
+function updateEventStatus() {
+    const statusElement = document.querySelector('.status-indicator');
+    if (statusElement) {
+        const now = new Date();
+        const eventTime = now.getHours();
         
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            
-            if (stat.textContent.includes('K')) {
-                stat.textContent = Math.floor(current / 1000) + 'K+';
-            } else if (stat.textContent.includes('%')) {
-                stat.textContent = current.toFixed(1) + '%';
-            } else {
-                stat.textContent = Math.floor(current) + '+';
-            }
-        }, 16);
-    });
-}
-
-// Trigger stats animation when hero section is visible
-const heroObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateStats();
-            heroObserver.disconnect(); // Only animate once
+        if (eventTime >= 9 && eventTime < 17) {
+            statusElement.textContent = '● Event Live';
+            statusElement.style.color = '#10b981';
+        } else {
+            statusElement.textContent = '● Event Scheduled';
+            statusElement.style.color = '#f59e0b';
         }
-    });
-});
-
-const heroSection = document.querySelector('.hero');
-if (heroSection) {
-    heroObserver.observe(heroSection);
+    }
 }
+
+// Update status on page load
+document.addEventListener('DOMContentLoaded', updateEventStatus);
