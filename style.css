@@ -793,6 +793,14 @@ body {
     color: #9ca3af;
 }
 
+.footer-bottom p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom p:last-child {
+    margin-bottom: 0;
+}
+
 .made-by {
     margin-top: 0.5rem;
     font-size: 0.9rem;
@@ -805,6 +813,10 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 700;
+}
+
+.made-by strong:last-child {
+    color: #f59e0b; /* Yellow color for Aaruush'25 */
 }
 
 /* Responsive Design */
