@@ -116,5 +116,65 @@ function updateEventStatus() {
     }
 }
 
-// Update status on page load
-document.addEventListener('DOMContentLoaded', updateEventStatus);
+// Dynamic Logo Animation Control
+function createMoreLogos() {
+    const fallingLogos = document.querySelector('.falling-logos');
+    
+    // Create additional logos dynamically for more density
+    setInterval(() => {
+        const logo = document.createElement('div');
+        logo.className = 'logo-star dynamic-logo';
+        logo.style.left = Math.random() * 100 + '%';
+        logo.style.animationDuration = (6 + Math.random() * 4) + 's';
+        logo.style.animationDelay = '0s';
+        
+        fallingLogos.appendChild(logo);
+        
+        // Remove logo after animation completes
+        setTimeout(() => {
+            if (logo.parentNode) {
+                logo.parentNode.removeChild(logo);
+            }
+        }, 10000);
+    }, 2000); // Create new logo every 2 seconds
+}
+
+// Initialize dynamic logo creation after page loads
+document.addEventListener('DOMContentLoaded', () => {
+    updateEventStatus();
+    // Wait a bit before starting dynamic creation
+    setTimeout(createMoreLogos, 3000);
+});
+
+// Pause animation when user is inactive (performance optimization)
+let isActive = true;
+let inactivityTimer;
+
+function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    
+    if (!isActive) {
+        // Resume animations
+        document.querySelectorAll('.logo-star').forEach(logo => {
+            logo.style.animationPlayState = 'running';
+        });
+        isActive = true;
+    }
+    
+    inactivityTimer = setTimeout(() => {
+        // Pause animations after 30 seconds of inactivity
+        document.querySelectorAll('.logo-star').forEach(logo => {
+            logo.style.animationPlayState = 'paused';
+        });
+        isActive = false;
+    }, 30000);
+}
+
+// Track user activity
+document.addEventListener('mousemove', resetInactivityTimer);
+document.addEventListener('scroll', resetInactivityTimer);
+document.addEventListener('keypress', resetInactivityTimer);
+document.addEventListener('click', resetInactivityTimer);
+
+// Initialize inactivity timer
+resetInactivityTimer();
